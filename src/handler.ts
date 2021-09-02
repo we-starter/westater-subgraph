@@ -42,6 +42,7 @@ export function handlerStaked(event: Staked): void {
   if(pool == null){
     pool = new Pool(poolId)
     pool.createdAt = event.block.timestamp
+    pool.address = event.transaction.to.toHexString()
     pool.total = BigInt.fromI32(0)
     pool.amount = BigInt.fromI32(0)
   }

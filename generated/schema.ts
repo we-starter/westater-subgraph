@@ -109,13 +109,13 @@ export class Pool extends Entity {
     this.set("id", Value.fromString(value));
   }
 
-  get address(): Bytes {
+  get address(): string {
     let value = this.get("address");
-    return value.toBytes();
+    return value.toString();
   }
 
-  set address(value: Bytes) {
-    this.set("address", Value.fromBytes(value));
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
   }
 
   get total(): BigInt {

@@ -8,7 +8,7 @@ type Account @entity {
 
 type Pool @entity {
   id: ID!
-  address: Bytes!
+  address: String!
   total: BigInt!
   amount: BigInt!
   createdAt: BigInt!
