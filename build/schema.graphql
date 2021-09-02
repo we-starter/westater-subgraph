@@ -1,0 +1,26 @@
+type Account @entity {
+  id: ID!
+  address: Bytes!
+  balance: BigInt!
+  createdAt: BigInt!
+  pools: [AccountPool!]! @derivedFrom(field: "account")
+}
+
+type Pool @entity {
+  id: ID!
+  address: Bytes!
+  total: BigInt!
+  amount: BigInt!
+  createdAt: BigInt!
+  accounts: [AccountPool!]! @derivedFrom(field: "pool")
+}
+
+type AccountPool @entity {
+  id: ID!
+  accountAddress: Bytes!
+  poolAddress: String!
+  amount: BigInt!
+  createdAt: BigInt!
+  pool: Pool!
+  account: Account!
+}
