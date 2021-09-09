@@ -12,6 +12,203 @@ import {
   BigDecimal
 } from "@graphprotocol/graph-ts";
 
+export class Token extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save Token entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save Token entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("Token", id.toString(), this);
+  }
+
+  static load(id: string): Token | null {
+    return store.get("Token", id) as Token | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+
+  get holders1000(): BigInt {
+    let value = this.get("holders1000");
+    return value.toBigInt();
+  }
+
+  set holders1000(value: BigInt) {
+    this.set("holders1000", Value.fromBigInt(value));
+  }
+
+  get holders2000(): BigInt {
+    let value = this.get("holders2000");
+    return value.toBigInt();
+  }
+
+  set holders2000(value: BigInt) {
+    this.set("holders2000", Value.fromBigInt(value));
+  }
+
+  get holders5000(): BigInt {
+    let value = this.get("holders5000");
+    return value.toBigInt();
+  }
+
+  set holders5000(value: BigInt) {
+    this.set("holders5000", Value.fromBigInt(value));
+  }
+
+  get holders10000(): BigInt {
+    let value = this.get("holders10000");
+    return value.toBigInt();
+  }
+
+  set holders10000(value: BigInt) {
+    this.set("holders10000", Value.fromBigInt(value));
+  }
+
+  get holders20000(): BigInt {
+    let value = this.get("holders20000");
+    return value.toBigInt();
+  }
+
+  set holders20000(value: BigInt) {
+    this.set("holders20000", Value.fromBigInt(value));
+  }
+
+  get holders50000(): BigInt {
+    let value = this.get("holders50000");
+    return value.toBigInt();
+  }
+
+  set holders50000(value: BigInt) {
+    this.set("holders50000", Value.fromBigInt(value));
+  }
+}
+
+export class TokenDay extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save TokenDay entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save TokenDay entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("TokenDay", id.toString(), this);
+  }
+
+  static load(id: string): TokenDay | null {
+    return store.get("TokenDay", id) as TokenDay | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get date(): i32 {
+    let value = this.get("date");
+    return value.toI32();
+  }
+
+  set date(value: i32) {
+    this.set("date", Value.fromI32(value));
+  }
+
+  get holders(): BigInt {
+    let value = this.get("holders");
+    return value.toBigInt();
+  }
+
+  set holders(value: BigInt) {
+    this.set("holders", Value.fromBigInt(value));
+  }
+
+  get holders1000(): BigInt {
+    let value = this.get("holders1000");
+    return value.toBigInt();
+  }
+
+  set holders1000(value: BigInt) {
+    this.set("holders1000", Value.fromBigInt(value));
+  }
+
+  get holders2000(): BigInt {
+    let value = this.get("holders2000");
+    return value.toBigInt();
+  }
+
+  set holders2000(value: BigInt) {
+    this.set("holders2000", Value.fromBigInt(value));
+  }
+
+  get holders5000(): BigInt {
+    let value = this.get("holders5000");
+    return value.toBigInt();
+  }
+
+  set holders5000(value: BigInt) {
+    this.set("holders5000", Value.fromBigInt(value));
+  }
+
+  get holders10000(): BigInt {
+    let value = this.get("holders10000");
+    return value.toBigInt();
+  }
+
+  set holders10000(value: BigInt) {
+    this.set("holders10000", Value.fromBigInt(value));
+  }
+
+  get holders20000(): BigInt {
+    let value = this.get("holders20000");
+    return value.toBigInt();
+  }
+
+  set holders20000(value: BigInt) {
+    this.set("holders20000", Value.fromBigInt(value));
+  }
+
+  get holders50000(): BigInt {
+    let value = this.get("holders50000");
+    return value.toBigInt();
+  }
+
+  set holders50000(value: BigInt) {
+    this.set("holders50000", Value.fromBigInt(value));
+  }
+}
+
 export class Account extends Entity {
   constructor(id: string) {
     super();
@@ -58,6 +255,24 @@ export class Account extends Entity {
 
   set balance(value: BigInt) {
     this.set("balance", Value.fromBigInt(value));
+  }
+
+  get stake(): BigInt {
+    let value = this.get("stake");
+    return value.toBigInt();
+  }
+
+  set stake(value: BigInt) {
+    this.set("stake", Value.fromBigInt(value));
+  }
+
+  get total(): BigInt {
+    let value = this.get("total");
+    return value.toBigInt();
+  }
+
+  set total(value: BigInt) {
+    this.set("total", Value.fromBigInt(value));
   }
 
   get createdAt(): BigInt {
@@ -152,6 +367,73 @@ export class Pool extends Entity {
 
   set accounts(value: Array<string>) {
     this.set("accounts", Value.fromStringArray(value));
+  }
+}
+
+export class PoolDay extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save PoolDay entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save PoolDay entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("PoolDay", id.toString(), this);
+  }
+
+  static load(id: string): PoolDay | null {
+    return store.get("PoolDay", id) as PoolDay | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get address(): string {
+    let value = this.get("address");
+    return value.toString();
+  }
+
+  set address(value: string) {
+    this.set("address", Value.fromString(value));
+  }
+
+  get date(): i32 {
+    let value = this.get("date");
+    return value.toI32();
+  }
+
+  set date(value: i32) {
+    this.set("date", Value.fromI32(value));
+  }
+
+  get total(): BigInt {
+    let value = this.get("total");
+    return value.toBigInt();
+  }
+
+  set total(value: BigInt) {
+    this.set("total", Value.fromBigInt(value));
+  }
+
+  get amount(): BigInt {
+    let value = this.get("amount");
+    return value.toBigInt();
+  }
+
+  set amount(value: BigInt) {
+    this.set("amount", Value.fromBigInt(value));
   }
 }
 
