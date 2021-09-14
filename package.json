@@ -2,11 +2,11 @@
   "name": "westarter-subgraph",
   "version": "0.1.0",
   "scripts": {
-    "create-local": "graph create westarter/war --node http://192.168.1.123:9020",
+    "create-local": "graph create westarter/war --node http://127.0.0.1:10020",
     "codegen": "graph codegen",
     "build": "graph build",
-    "remove-local": "graph remove --node http://192.168.1.123:9020/ westarter/war",
-    "deploy-local": "graph deploy westarter/war --ipfs http://192.168.1.123:5001 --node http://192.168.1.123:9020"
+    "remove-local": "graph remove --node http://127.0.0.1:10020/ westarter/war",
+    "deploy-local": "graph deploy westarter/war --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:10020"
   },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.21.1",
