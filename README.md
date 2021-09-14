@@ -1,1 +1,2 @@
-# helmet-subgraph
+# pixelpuzzle-subgraph
+The subgraph for pixelpuzzle
