@@ -1,2 +1,1 @@
-# pixelpuzzle-subgraph
-The subgraph for pixelpuzzle
+# westater-subgraph
