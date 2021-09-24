@@ -1,5 +1,5 @@
 specVersion: 0.0.3
-description: Helmet.Insure
+description: Westarter Subgraph
 repository: https://github.com/westarter/westarter-subgraph
 schema:
   file: ./schema.graphql
