@@ -1,6 +1,13 @@
 {
   "name": "westarter-subgraph",
   "version": "0.1.0",
+  "scripts": {
+    "create-local": "graph create westarter/pools --node http://127.0.0.1:10020",
+    "codegen": "graph codegen",
+    "build": "graph build",
+    "remove-local": "graph remove --node http://127.0.0.1:10020/ westarter/war",
+    "deploy-local": "graph deploy westarter/pools --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:10020"
+  },
   "devDependencies": {
     "@graphprotocol/graph-cli": "^0.21.1",
     "@graphprotocol/graph-ts": "^0.20.1"

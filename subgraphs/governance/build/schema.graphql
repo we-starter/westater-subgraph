@@ -1,0 +1,17 @@
+type Project @entity {
+  id: ID!
+  holder: Bytes!
+  tokenId: BigInt!
+  tokenURI: String!
+}
+
+type ProjectVote @entity {
+  id: ID!
+  ProjectId: BigInt!
+  tokenId: BigInt!
+  tokenURI: String!
+  begin: BigInt!
+  voteMax: BigInt!
+  voteYes: BigInt!
+  voteNo: BigInt!
+}
