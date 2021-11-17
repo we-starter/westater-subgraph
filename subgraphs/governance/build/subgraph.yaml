@@ -40,6 +40,8 @@ dataSources:
       abis:
         - name: VoteMain
           file: VoteMain/abis/VoteMain.json
+        - name: VoteNFT
+          file: VoteMain/abis/VoteNFT.json
       eventHandlers:
         - event: CreatePropose(indexed
             uint256,string,string,uint256,uint256,uint256,uint256,uint256)
