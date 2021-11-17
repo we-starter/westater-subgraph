@@ -35,7 +35,7 @@ export function handlerCreatePropose(event: CreatePropose): void {
     const tokenURI = contract.tokenURI(projectVote.tokenId)
     projectVote.tokenURI = tokenURI
     projectVote.begin = event.params.begin
-    projectVote.voteMax = event.params.iwoAmountUSDT.div(event.params.warPrice)
+    projectVote.voteMax = event.params.iwoAmountUSDT.times(BigInt.fromI32(10).pow(18)).div(event.params.warPrice)
     projectVote.voteYes = BigInt.fromI32(0)
     projectVote.voteNo = BigInt.fromI32(0)
     projectVote.save()
