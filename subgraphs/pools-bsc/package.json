@@ -5,7 +5,7 @@
     "create-local": "graph create westarter/pools --node http://127.0.0.1:8020",
     "codegen": "graph codegen",
     "build": "graph build",
-    "remove-local": "graph remove --node http://127.0.0.1:10020/ westarter/war",
+    "remove-local": "graph remove --node http://127.0.0.1:10020/ westarter/pools",
     "deploy-local": "graph deploy westarter/pools --ipfs http://127.0.0.1:5001 --node http://127.0.0.1:8020"
   },
   "devDependencies": {
