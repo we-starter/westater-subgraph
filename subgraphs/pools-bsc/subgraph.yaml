@@ -1,0 +1,49 @@
+specVersion: 0.0.3
+description: Westarter Subgraph
+repository: https://github.com/westarter/westarter-subgraph
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum/contract
+    name: WAR
+    network: bsc
+    source:
+      address: '0x910651F81a605a6Ef35d05527d24A72fecef8bF0'
+      abi: ERC20
+      startBlock: 4208619
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WeStarter
+      abis:
+        - name: ERC20
+          file: ./abis/ERC20.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,uint256)
+          handler: handlerTransfer
+      file: ./src/handler.ts
+  - kind: ethereum/contract
+    name: WAR-POOL-(DAO)-SVIP-Pool
+    network: heco
+    source:
+      address: '0x6B4a329855762554A25FdFdAa1DAAA88B630dEF8'
+      abi: StakingPool
+      startBlock: 13291282
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.4
+      language: wasm/assemblyscript
+      entities:
+        - WeStarter
+      abis:
+        - name: StakingPool
+          file: ./abis/StakingPool.json
+      eventHandlers:
+        - event: Staked(indexed address,uint256)
+          handler: handlerStaked
+        - event: Withdrawn(indexed address,uint256)
+          handler: handlerWithdrawn
+      file: ./src/handler.ts
+
