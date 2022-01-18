@@ -3,7 +3,7 @@ import { CreatePropose, Vote } from '../generated/VoteMain/VoteMain'
 import { Project, ProjectVote } from '../generated/schema'
 import { Address, BigInt } from '@graphprotocol/graph-ts'
 
-const NFT_ADDRESS = Address.fromString("0x203B4392ef59657c23fddE4CD37798f321220373")
+const NFT_ADDRESS = Address.fromString("0xFeF7eF9FF582D154aFe329d906C13284Dd48b839")
 
 export function handlerTransfer(event: Transfer): void {
   let id = event.params.tokenId.toString()
